@@ -98,7 +98,7 @@ seventhForm.addEventListener('submit', (e) => {
     const arrayVowels = arraySeparado.filter(item => vowels.includes(item));
 
     const div = document.querySelector('.seventh-form__div')
-    div.innerHTML = `<h3>La frase contiene ${arrayVowels.length} vocales y las mismas son: ${arrayVowels.join(", ")}</h3>`;
+    div.innerHTML = `<h3>La frase contiene ${arrayVowels.length} vocales y su orden de aparición es: ${arrayVowels.join(", ")}</h3>`;
 })
 
 // Contamos cuantas veces aparece una letra en una frase
@@ -125,27 +125,16 @@ ninthForm.addEventListener('submit', (e) => {
 
     const num = parseInt(e.target.divisible2.value);
 
+    const divisibleArr = []
 
-    const div1 = document.querySelector('.ninth-form__div-1');
-    const div2 = document.querySelector('.ninth-form__div-2');
-    const div3 = document.querySelector('.ninth-form__div-3');
-    const div4 = document.querySelector('.ninth-form__div-4');
+    const div1 = document.querySelector('.ninth-form__div');
 
-    if (num % 2 === 0) {
-        div1.innerHTML = `<h3>El numero ${num} es divisible por 2</h3>`;
-    }
+    num % 2 === 0 && divisibleArr.push(2);
+    num % 3 === 0 && divisibleArr.push(3);
+    num % 5 === 0 && divisibleArr.push(5);
+    num % 7 === 0 && divisibleArr.push(7);
 
-    if (num % 3 === 0) {
-        div2.innerHTML = `<h3>El numero ${num} es divisible por 3</h3>`;
-    }
-
-    if (num % 5 === 0) {
-        div3.innerHTML = `<h3>El numero ${num} es divisible por 5</h3>`;
-    }
-
-    if (num % 7 === 0) {
-        div4.innerHTML = `<h3>El numero ${num} es divisible por 7</h3>`;
-    }
+    div1.innerHTML = `<h3>El numero ${num} es divisible entre: ${divisibleArr.join(", ")}</h3>`;
 })
 
 
