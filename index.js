@@ -79,11 +79,13 @@ sixthForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const text = e.target.letter.value;
-    const arraySeparado = text.split('');
-    const arrarConLetraA = arraySeparado.filter(item => item === 'a');
+    const aRegEx = /a/gi;
+    const arrarConLetraA = text.match(aRegEx);
+
+    console.log(arrarConLetraA)
 
     const div = document.querySelector('.sixth-form__div')
-    div.innerHTML = `<h3>El numero de letras a es: ${arrarConLetraA.length}</h3>`;
+    arrarConLetraA ? div.innerHTML = `<h3>El numero de letras "A" es: ${arrarConLetraA.length}</h3>`: div.innerHTML = `<h3>No hay letra "A" en tu frase</h3>`;
 })
 
 // Contamos las vocales de una frase
